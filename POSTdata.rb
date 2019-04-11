@@ -6,7 +6,7 @@ sensorTypes = ["flow_rate", "discharge_elevation", "discharge_pressure", "suctio
 while true do
   for type in sensorTypes do
     uri = URI("https://demosensorapi.herokuapp.com/sensors/" + type)
-    res = Net::HTTP.post_form(uri, 'timestamp' => Time.now, 'sensorReading' => r.rand(500)/100.0, 'id' => 'mypump')
+    res = Net::HTTP.post_form(uri, 'timestamp' => Time.now, 'sensorReading' => (1 + r.rand(400)/100.0), 'id' => 'mypump')
     puts res
   end
   puts ''
